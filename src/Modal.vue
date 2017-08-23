@@ -96,6 +96,11 @@ export default {
   },
   mounted () {
     this.val = this.value
+  },
+  beforeDestroy () {
+    const body = document.body
+    body.style.paddingRight = null
+    body.classList.remove('modal-open')
   }
 }
 </script>
