@@ -2,7 +2,7 @@
   <div class="datepicker">
     <input class="form-control datepicker-input" type="text"
       v-model="val"
-      :class="{'with-reset-button': clearButton}"
+      :class="[inputClass, {'with-reset-button': clearButton}]"
       :placeholder="placeholder"
       :style="{width:width}"
       @click="inputClick"
@@ -83,7 +83,8 @@ export default {
     clearButton: {type: Boolean, default: false},
     lang: {type: String, default: typeof navigator !== 'undefined'?navigator.language:"zh-CN"},
     placeholder: {type: String},
-    iconsFont: {type: String, default: 'glyphicon'}
+    iconsFont: {type: String, default: 'glyphicon'},
+    inputClass: {type: String, default: ''},
   },
   data () {
     return {
