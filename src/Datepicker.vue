@@ -2,6 +2,7 @@
   <div class="datepicker">
     <input class="form-control datepicker-input" type="text"
       v-model="val"
+      v-mask="mask"
       :class="[inputClass, {'with-reset-button': clearButton}]"
       :placeholder="placeholder"
       :style="{width:width}"
@@ -72,6 +73,7 @@
 
 <script>
 import {translations} from './utils/utils.js'
+import { VueMaskDirective } from 'v-mask';
 // import $ from './utils/NodeList.js'
 
 export default {
@@ -85,6 +87,10 @@ export default {
     placeholder: {type: String},
     iconsFont: {type: String, default: 'glyphicon'},
     inputClass: {type: String, default: ''},
+    mask: {type: String, default: ''},
+  },
+  directives: {
+    VueMaskDirective,
   },
   data () {
     return {
